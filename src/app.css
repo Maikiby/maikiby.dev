@@ -3,10 +3,4 @@
 @tailwind utilities;
 
 @layer components {
-	.text-header {
-		@apply font-bold text-lg text-white;
-	}
-    p {
-        @apply text-white;
-    }
 }
