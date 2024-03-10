@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+/* Theme Font */
+@font-face {
+	font-family: 'Quicksand';
+	src: url('/fonts/Quickdsand.ttf');
+	font-display: swap;
+}
+
+:root [data-theme='neo-flutter'] {
+	--theme-font-family-base: 'Quicksand', sans-serif;
+	--theme-font-family-heading: 'Quicksand', sans-serif;
+}
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}
