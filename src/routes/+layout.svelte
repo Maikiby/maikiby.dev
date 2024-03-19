@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import GoogleLogo from '~icons/mdi/google';
 </script>
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
@@ -10,7 +11,14 @@
 				<h1 class="h1 font-bold">Welcome to my portfolio!</h1>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a class="" href="https://google.com" target="_blank" rel="noreferrer">Google</a>
+				<a
+					class="btn variant-filled gap-1"
+					href="https://google.com"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<GoogleLogo />Google
+				</a>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
