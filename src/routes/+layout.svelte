@@ -1,7 +1,8 @@
 <script lang="ts">
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	import GoogleLogo from '~icons/mdi/google';
+	import BSkyIcon from '~icons/ri/bluesky-fill';
+	import GithubMark from '~icons/mdi/github';
 </script>
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-56 p-4">
@@ -12,12 +13,20 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<a
-					class="btn variant-filled gap-1"
-					href="https://google.com"
+					class="btn variant-filled-tertiary"
+					href="https://bsky.app/profile/maikiby.bsky.social"
 					target="_blank"
 					rel="noreferrer"
 				>
-					<GoogleLogo />Google
+					<BSkyIcon />
+				</a>
+				<a
+					class="btn variant-filled"
+					href="https://github.com/Maikiby"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<GithubMark />
 				</a>
 			</svelte:fragment>
 		</AppBar>
