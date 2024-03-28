@@ -14,7 +14,7 @@
 			<svelte:fragment slot="trail">
 				<a
 					class="btn variant-filled-tertiary"
-					href="https://bsky.app/profile/maikiby.bsky.social"
+					href="https://bsky.app/profile/maikiby.dev"
 					target="_blank"
 					rel="noreferrer"
 				>
