@@ -1,10 +1,12 @@
-@import "@skeletonlabs/skeleton";
+@import '@skeletonlabs/skeleton';
 
 /* Add your theme import for your theme: "neo-flutter" here */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+@import '../neo-flutter.css';
 
 /* Theme Font */
 @font-face {

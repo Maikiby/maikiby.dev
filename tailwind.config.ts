@@ -2,8 +2,6 @@ import { join } from 'path';
 import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import { skeleton } from '@skeletonlabs/tw-plugin';
-import { neoFlutter } from './neo-flutter';
 
 const config = {
 	darkMode: 'class',
@@ -18,17 +16,6 @@ const config = {
 	plugins: [
 		forms,
 		typography,
-		skeleton({
-			themes: {
-				custom: [neoFlutter],
-				preset: [
-					{
-						name: 'modern',
-						enhancements: true
-					}
-				]
-			}
-		})
 	]
 } satisfies Config;
 
