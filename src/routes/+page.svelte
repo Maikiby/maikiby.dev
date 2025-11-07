@@ -1,4 +1,6 @@
-<header>Header</header>
+<header>
+	<h1>Header</h1>
+</header>
 <main>
 	<p>Paragraph 1</p>
 	<p>Paragraph 2</p>
