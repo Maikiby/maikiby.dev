@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	let currentTile: number = 0;
+	let currentTile: number = $state(0);
 	import {
 		AppRail,
 		AppRailTile,
@@ -26,11 +26,15 @@
 	<div class="h-full">
 		<AppRail>
 			<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="Mittens Project">
-				<svelte:fragment slot="lead"><Briefcase size={24} /></svelte:fragment>
+				{#snippet lead()}
+								<Briefcase size={24} />
+							{/snippet}
 				<span>Mittens</span>
 			</AppRailTile>
 			<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="Pharma Assist Project">
-				<svelte:fragment slot="lead"><Briefcase size={24} /></svelte:fragment>
+				{#snippet lead()}
+								<Briefcase size={24} />
+							{/snippet}
 				<span>Pharma Assist</span>
 			</AppRailTile>
 		</AppRail>
@@ -45,15 +49,21 @@
 			class="bg-surface-100-800-token w-full max-w-lg"
 		>
 			<TabAnchor href="/" selected={$page.url.pathname === '/'}>
-				<svelte:fragment slot="lead"><Home size={24} /></svelte:fragment>
+				{#snippet lead()}
+								<Home size={24} />
+							{/snippet}
 				<span>Home</span>
 			</TabAnchor>
 			<TabAnchor href="/about" on:click={comingSoon} rel="noreferrer">
-				<svelte:fragment slot="lead"><Info size={24} /></svelte:fragment>
+				{#snippet lead()}
+								<Info size={24} />
+							{/snippet}
 				<span>About</span>
 			</TabAnchor>
 			<TabAnchor href="/contact" on:click={comingSoon} rel="noreferrer">
-				<svelte:fragment slot="lead"><Mail size={24} /></svelte:fragment>
+				{#snippet lead()}
+								<Mail size={24} />
+							{/snippet}
 				<span>Contact</span>
 			</TabAnchor>
 		</TabGroup>
