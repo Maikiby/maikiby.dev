@@ -1,4 +1,7 @@
 @import '../neo-flutter.css';
+
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@import '@fontsource/quicksand';
