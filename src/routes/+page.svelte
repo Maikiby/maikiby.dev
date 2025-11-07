@@ -2,7 +2,11 @@
 	import { page } from '$app/stores';
 	let currentTile: number = $state(0);
 	import {
-		type ToastSettings, Navigation, Tabs } from '@skeletonlabs/skeleton-svelte';
+		type ToastSettings,
+		Navigation,
+		Tabs,
+		getToastStore
+	} from '@skeletonlabs/skeleton-svelte';
 	import { Home, Briefcase, Info, Mail } from 'lucide-svelte';
 
 	const toastStore = getToastStore();
@@ -20,15 +24,16 @@
 	<div class="h-full">
 		<Navigation>
 			<Navigation.Tile bind:group={currentTile} name="tile-1" value={0} title="Mittens Project">
-				{#snippet lead()}
-								<Briefcase size={24} />
-							{/snippet}
+				<Briefcase size={24} slot="lead" />
 				<span>Mittens</span>
 			</Navigation.Tile>
-			<Navigation.Tile bind:group={currentTile} name="tile-2" value={1} title="Pharma Assist Project">
-				{#snippet lead()}
-								<Briefcase size={24} />
-							{/snippet}
+			<Navigation.Tile
+				bind:group={currentTile}
+				name="tile-2"
+				value={1}
+				title="Pharma Assist Project"
+			>
+				<Briefcase size={24} slot="lead" />
 				<span>Pharma Assist</span>
 			</Navigation.Tile>
 		</Navigation>
@@ -43,21 +48,15 @@
 			class="bg-surface-100-900 w-full max-w-lg"
 		>
 			<Tabs.Control href="/" selected={$page.url.pathname === '/'}>
-				{#snippet lead()}
-								<Home size={24} />
-							{/snippet}
+				<Home size={24} slot="lead" />
 				<span>Home</span>
 			</Tabs.Control>
 			<Tabs.Control href="/about" on:click={comingSoon} rel="noreferrer">
-				{#snippet lead()}
-								<Info size={24} />
-							{/snippet}
+				<Info size={24} slot="lead" />
 				<span>About</span>
 			</Tabs.Control>
 			<Tabs.Control href="/contact" on:click={comingSoon} rel="noreferrer">
-				{#snippet lead()}
-								<Mail size={24} />
-							{/snippet}
+				<Mail size={24} slot="lead" />
 				<span>Contact</span>
 			</Tabs.Control>
 		</Tabs>
@@ -66,12 +65,18 @@
 			{#if currentTile === 0}
 				<div class="card w-full max-w-md preset-filled-surface-100-900 p-4 text-center">
 					<h2 class="h2 mb-4">Mittens Project</h2>
-					<p>This is where the detailed description for the Mittens project will go. You can add images, links, and more.</p>
+					<p>
+						This is where the detailed description for the Mittens project will go. You can add
+						images, links, and more.
+					</p>
 				</div>
 			{:else if currentTile === 1}
 				<div class="card w-full max-w-md preset-filled-surface-100-900 p-4 text-center">
 					<h2 class="h2 mb-4">Pharma Assist Project</h2>
-					<p>This is where the detailed description for the Pharma Assist project will go. You can add images, links, and more.</p>
+					<p>
+						This is where the detailed description for the Pharma Assist project will go. You can
+						add images, links, and more.
+					</p>
 				</div>
 			{/if}
 		</div>
