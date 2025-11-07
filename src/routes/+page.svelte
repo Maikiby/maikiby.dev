@@ -1,42 +1,75 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	let currentTile: number = 0;
-	import { AppRail, AppRailAnchor, AppRailTile, TabGroup, TabAnchor } from '@skeletonlabs/skeleton';
+	import {
+		AppRail,
+		AppRailTile,
+		TabGroup,
+		TabAnchor,	
+		getToastStore,
+		type ToastSettings
+	} from '@skeletonlabs/skeleton';
+	import { Home, Briefcase, Info, Mail } from 'lucide-svelte';
+
+	const toastStore = getToastStore();
+	function comingSoon(event: MouseEvent) {
+		event.preventDefault();
+		const t: ToastSettings = {
+			message: 'This page is coming soon!',
+			background: 'variant-filled-warning'
+		};
+		toastStore.trigger(t);
+	}
 </script>
 
-<div class="container mx-auto p-8 space-y-8">
-	<AppRail>
-		<!-- --- -->
-		<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="tile-1">
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>Mittens</span>
-		</AppRailTile>
-		<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="tile-2">
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>Pharma Assist</span>
-		</AppRailTile>
-	</AppRail>
+<div class="flex h-full">
+	<div class="h-full">
+		<AppRail>
+			<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="Mittens Project">
+				<svelte:fragment slot="lead"><Briefcase size={24} /></svelte:fragment>
+				<span>Mittens</span>
+			</AppRailTile>
+			<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="Pharma Assist Project">
+				<svelte:fragment slot="lead"><Briefcase size={24} /></svelte:fragment>
+				<span>Pharma Assist</span>
+			</AppRailTile>
+		</AppRail>
+	</div>
 
-	<TabGroup
-		justify="justify-center"
-		active="variant-filled-primary"
-		hover="hover:variant-soft-primary"
-		flex="flex-1 lg:flex-none"
-		rounded=""
-		border=""
-		class="bg-surface-100-800-token w-full"
-	>
-		<TabAnchor href="/about" selected={$page.url.pathname === '/about'}>
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>(label)</span>
-		</TabAnchor>
-		<TabAnchor href="/pharma" selected={$page.url.pathname === '/pharma'}>
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>(label)</span>
-		</TabAnchor>
-		<TabAnchor href="/mittens" selected={$page.url.pathname === '/mittens'}>
-			<svelte:fragment slot="lead">(icon)</svelte:fragment>
-			<span>(label)</span>
-		</TabAnchor>
-	</TabGroup>
+	<div class="flex-1 p-4 md:p-10 flex flex-col items-center space-y-8">
+		<TabGroup
+			justify="justify-center"
+			active="variant-filled-primary"
+			hover="hover:variant-soft-primary"
+			flex="flex-1 lg:flex-none"
+			class="bg-surface-100-800-token w-full max-w-lg"
+		>
+			<TabAnchor href="/" selected={$page.url.pathname === '/'}>
+				<svelte:fragment slot="lead"><Home size={24} /></svelte:fragment>
+				<span>Home</span>
+			</TabAnchor>
+			<TabAnchor href="/about" on:click={comingSoon} rel="noreferrer">
+				<svelte:fragment slot="lead"><Info size={24} /></svelte:fragment>
+				<span>About</span>
+			</TabAnchor>
+			<TabAnchor href="/contact" on:click={comingSoon} rel="noreferrer">
+				<svelte:fragment slot="lead"><Mail size={24} /></svelte:fragment>
+				<span>Contact</span>
+			</TabAnchor>
+		</TabGroup>
+
+		<div class="w-full max-w-4xl">
+			{#if currentTile === 0}
+				<div class="card w-full max-w-md preset-filled-surface-100-900 p-4 text-center">
+					<h2 class="h2 mb-4">Mittens Project</h2>
+					<p>This is where the detailed description for the Mittens project will go. You can add images, links, and more.</p>
+				</div>
+			{:else if currentTile === 1}
+				<div class="card w-full max-w-md preset-filled-surface-100-900 p-4 text-center">
+					<h2 class="h2 mb-4">Pharma Assist Project</h2>
+					<p>This is where the detailed description for the Pharma Assist project will go. You can add images, links, and more.</p>
+				</div>
+			{/if}
+		</div>
+	</div>
 </div>
