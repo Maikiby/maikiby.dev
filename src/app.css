@@ -1,7 +1,8 @@
-@import '../neo-flutter.css';
-
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
+@import './neoflutter.css';
 @import '@fontsource/quicksand';

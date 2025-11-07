@@ -6,6 +6,7 @@
       "dependencies": {
         "@fontsource/quicksand": "^5.2.10",
         "@lucide/svelte": "^0.553.0",
+        "@skeletonlabs/skeleton": "^4.2.4",
         "@skeletonlabs/skeleton-svelte": "^4.2.4",
       },
       "devDependencies": {
@@ -283,6 +284,8 @@
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.53.0", "", { "os": "win32", "cpu": "x64" }, "sha512-xtSei8paPcLy3GzeeOjoRrllJn6EN8PB+/bXnhZ4R0AaviJsRwtKxFZRVnfFXNZTTp0nLeDo+BcEuIfdZS14/A=="],
 
     "@sindresorhus/is": ["@sindresorhus/is@7.1.1", "", {}, "sha512-rO92VvpgMc3kfiTjGT52LEtJ8Yc5kCWhZjLQ3LwlA4pSgPpQO7bVpYXParOD8Jwf+cVQECJo3yP/4I8aZtUQTQ=="],
+
+    "@skeletonlabs/skeleton": ["@skeletonlabs/skeleton@4.2.4", "", { "peerDependencies": { "tailwindcss": "^4.0.0" } }, "sha512-Mvqrq57OpSCzoFR8bXM/IsyUPmaBv1Whp97d0Knwbr8gdHpdKn6pFGtFmN/YJjvlk4WS0Ad8hZA8uSkkL7Qs2Q=="],
 
     "@skeletonlabs/skeleton-common": ["@skeletonlabs/skeleton-common@4.2.4", "", {}, "sha512-XLypRzqh5UpxpYbW7GCX3WWTCEzFvndgEqWQVM+2+J+LYi3/3xsfKWzloYUWNpTVSYc14hkec8n5ucW7E6CqyQ=="],
 
