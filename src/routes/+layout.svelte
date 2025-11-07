@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.postcss';
-	import { AppShell, AppBar, initializeStores, Toast } from '@skeletonlabs/skeleton';
+	import { AppBar, ToastProvider } from '@skeletonlabs/skeleton-svelte';
 	import BSkyIcon from '~icons/ri/bluesky-fill';
 	import GithubMark from '~icons/mdi/github';
 	interface Props {
@@ -13,7 +13,7 @@
 </script>
 
 <!-- Pass contents to the App Shell -->
-<Toast />
+<ToastProvider />
 <AppShell>
 	{#snippet header()}
 	
@@ -26,7 +26,7 @@
 				{#snippet trail()}
 					
 						<a
-							class="btn variant-filled-tertiary"
+							class="btn preset-filled-tertiary-500"
 							href="https://bsky.app/profile/maikiby.dev"
 							target="_blank"
 							rel="noreferrer"
@@ -34,7 +34,7 @@
 							<BSkyIcon />
 						</a>
 						<a
-							class="btn variant-filled"
+							class="btn preset-filled"
 							href="https://github.com/Maikiby"
 							target="_blank"
 							rel="noreferrer"

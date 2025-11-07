@@ -2,13 +2,7 @@
 	import { page } from '$app/stores';
 	let currentTile: number = $state(0);
 	import {
-		AppRail,
-		AppRailTile,
-		TabGroup,
-		TabAnchor,	
-		getToastStore,
-		type ToastSettings
-	} from '@skeletonlabs/skeleton';
+		type ToastSettings, Navigation, Tabs } from '@skeletonlabs/skeleton-svelte';
 	import { Home, Briefcase, Info, Mail } from 'lucide-svelte';
 
 	const toastStore = getToastStore();
@@ -16,7 +10,7 @@
 		event.preventDefault();
 		const t: ToastSettings = {
 			message: 'This page is coming soon!',
-			background: 'variant-filled-warning'
+			background: 'preset-filled-warning-500'
 		};
 		toastStore.trigger(t);
 	}
@@ -24,49 +18,49 @@
 
 <div class="flex h-full">
 	<div class="h-full">
-		<AppRail>
-			<AppRailTile bind:group={currentTile} name="tile-1" value={0} title="Mittens Project">
+		<Navigation>
+			<Navigation.Tile bind:group={currentTile} name="tile-1" value={0} title="Mittens Project">
 				{#snippet lead()}
 								<Briefcase size={24} />
 							{/snippet}
 				<span>Mittens</span>
-			</AppRailTile>
-			<AppRailTile bind:group={currentTile} name="tile-2" value={1} title="Pharma Assist Project">
+			</Navigation.Tile>
+			<Navigation.Tile bind:group={currentTile} name="tile-2" value={1} title="Pharma Assist Project">
 				{#snippet lead()}
 								<Briefcase size={24} />
 							{/snippet}
 				<span>Pharma Assist</span>
-			</AppRailTile>
-		</AppRail>
+			</Navigation.Tile>
+		</Navigation>
 	</div>
 
 	<div class="flex-1 p-4 md:p-10 flex flex-col items-center space-y-8">
-		<TabGroup
+		<Tabs
 			justify="justify-center"
-			active="variant-filled-primary"
-			hover="hover:variant-soft-primary"
+			active="preset-filled-primary-500"
+			hover="hover:preset-tonal-primary"
 			flex="flex-1 lg:flex-none"
-			class="bg-surface-100-800-token w-full max-w-lg"
+			class="bg-surface-100-900 w-full max-w-lg"
 		>
-			<TabAnchor href="/" selected={$page.url.pathname === '/'}>
+			<Tabs.Control href="/" selected={$page.url.pathname === '/'}>
 				{#snippet lead()}
 								<Home size={24} />
 							{/snippet}
 				<span>Home</span>
-			</TabAnchor>
-			<TabAnchor href="/about" on:click={comingSoon} rel="noreferrer">
+			</Tabs.Control>
+			<Tabs.Control href="/about" on:click={comingSoon} rel="noreferrer">
 				{#snippet lead()}
 								<Info size={24} />
 							{/snippet}
 				<span>About</span>
-			</TabAnchor>
-			<TabAnchor href="/contact" on:click={comingSoon} rel="noreferrer">
+			</Tabs.Control>
+			<Tabs.Control href="/contact" on:click={comingSoon} rel="noreferrer">
 				{#snippet lead()}
 								<Mail size={24} />
 							{/snippet}
 				<span>Contact</span>
-			</TabAnchor>
-		</TabGroup>
+			</Tabs.Control>
+		</Tabs>
 
 		<div class="w-full max-w-4xl">
 			{#if currentTile === 0}
