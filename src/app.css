@@ -1,4 +1,7 @@
 @import 'tailwindcss';
+@theme {
+	--variant-dark: .dark &;
+}
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 

@@ -203,3 +203,12 @@
 	--color-surface-contrast-900: var(--color-surface-contrast-light);
 	--color-surface-contrast-950: var(--color-surface-contrast-light);
 }
+
+.dark[data-theme='neoflutter'],
+.dark [data-theme='neoflutter'],
+[data-theme='neoflutter'].dark {
+	--base-font-color: var(--base-font-color-dark);
+	--heading-font-color: var(--heading-font-color-dark);
+	--anchor-font-color: var(--anchor-font-color-dark);
+	--body-background-color: var(--body-background-color-dark);
+}

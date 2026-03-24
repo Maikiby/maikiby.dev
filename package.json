@@ -60,5 +60,13 @@
 		"@lucide/svelte": "^0.553.0",
 		"@skeletonlabs/skeleton": "^4.2.4",
 		"@skeletonlabs/skeleton-svelte": "^4.2.4"
+	},
+	"resolutions": {
+		"minimatch": "10.2.4",
+		"undici": "7.24.5",
+		"wrangler": "4.77.0",
+		"flatted": "3.4.2",
+		"rollup": "4.59.0",
+		"cookie": "0.7.0"
 	}
 }
